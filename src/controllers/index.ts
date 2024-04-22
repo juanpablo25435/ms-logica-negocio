@@ -29,3 +29,4 @@ export * from './plan.controller';
 export * from './room.controller';
 export * from './service-plan.controller';
 export * from './status-beneficiary.controller';
+export * from './departament.controller';

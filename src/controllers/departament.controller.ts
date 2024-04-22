@@ -20,13 +20,13 @@ import {
 import {Departament} from '../models';
 import {DepartamentRepository} from '../repositories';
 
-export class DepartmentController {
+export class DepartamentController {
   constructor(
     @repository(DepartamentRepository)
     public departamentRepository : DepartamentRepository,
   ) {}
 
-  @post('/department')
+  @post('/departament')
   @response(200, {
     description: 'Departament model instance',
     content: {'application/json': {schema: getModelSchemaRef(Departament)}},
@@ -47,7 +47,7 @@ export class DepartmentController {
     return this.departamentRepository.create(departament);
   }
 
-  @get('/department/count')
+  @get('/departament/count')
   @response(200, {
     description: 'Departament model count',
     content: {'application/json': {schema: CountSchema}},
@@ -58,7 +58,7 @@ export class DepartmentController {
     return this.departamentRepository.count(where);
   }
 
-  @get('/department')
+  @get('/departament')
   @response(200, {
     description: 'Array of Departament model instances',
     content: {
@@ -76,7 +76,7 @@ export class DepartmentController {
     return this.departamentRepository.find(filter);
   }
 
-  @patch('/department')
+  @patch('/departament')
   @response(200, {
     description: 'Departament PATCH success count',
     content: {'application/json': {schema: CountSchema}},
@@ -95,7 +95,7 @@ export class DepartmentController {
     return this.departamentRepository.updateAll(departament, where);
   }
 
-  @get('/department/{id}')
+  @get('/departament/{id}')
   @response(200, {
     description: 'Departament model instance',
     content: {
@@ -111,7 +111,7 @@ export class DepartmentController {
     return this.departamentRepository.findById(id, filter);
   }
 
-  @patch('/department/{id}')
+  @patch('/departament/{id}')
   @response(204, {
     description: 'Departament PATCH success',
   })
@@ -129,7 +129,7 @@ export class DepartmentController {
     await this.departamentRepository.updateById(id, departament);
   }
 
-  @put('/department/{id}')
+  @put('/departament/{id}')
   @response(204, {
     description: 'Departament PUT success',
   })
@@ -140,7 +140,7 @@ export class DepartmentController {
     await this.departamentRepository.replaceById(id, departament);
   }
 
-  @del('/department/{id}')
+  @del('/departament/{id}')
   @response(204, {
     description: 'Departament DELETE success',
   })
