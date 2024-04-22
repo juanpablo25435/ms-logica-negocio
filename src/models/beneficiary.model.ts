@@ -2,7 +2,18 @@ import {Entity, model, property, belongsTo, hasOne} from '@loopback/repository';
 import {ClientPlan} from './client-plan.model';
 import {StatusBeneficiary} from './status-beneficiary.model';
 
-@model()
+@model({
+  settings: {
+    foreignkeys: {
+      FK_BENEFICIARY_IDCLIENTPLAN: {
+        name: 'fk_beneficiary_idClientPlan',
+        entity: 'ClientPlan',
+        entityKey: 'id',
+        foreignkey: 'clientPlanId',
+      },
+    },
+  },
+})
 export class Beneficiary extends Entity {
   @property({
     type: 'number',

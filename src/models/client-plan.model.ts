@@ -1,8 +1,26 @@
 import {Entity, model, property, belongsTo, hasMany} from '@loopback/repository';
 import {Client} from './client.model';
 import {Beneficiary} from './beneficiary.model';
+import {City} from './city.model';
 
-@model()
+@model({
+  settings: {
+    foreignkeys: {
+      FK_CLIENTPLAN_IDCLIENT: {
+        name: 'fk_clientPlan_idClient',
+        entity: 'Client',
+        entityKey: 'id',
+        foreignkey: 'clientId',
+      },
+      FK_CLIENTPLAN_IDBENEFICIARY: {
+        name: 'fk_clientPlan_idBeneficiary',
+        entity: 'Beneficiary',
+        entityKey: 'id',
+        foreignkey: 'beneficiaryId',
+      },
+    },
+  },
+})
 export class ClientPlan extends Entity {
   @property({
     type: 'number',
@@ -34,6 +52,9 @@ export class ClientPlan extends Entity {
 
   @hasMany(() => Beneficiary)
   beneficiaries: Beneficiary[];
+
+  @belongsTo(() => City)
+  cityId: number;
 
   constructor(data?: Partial<ClientPlan>) {
     super(data);
