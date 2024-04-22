@@ -24,9 +24,15 @@ export class Client extends Entity {
   @property({
     type: 'number',
     id: true,
-    generated: false,
+    generated: true,
   })
   id?: number;
+
+  @property({
+    type: 'number',
+    required: true,
+  })
+  identification: number;
 
   @property({
     type: 'string',
