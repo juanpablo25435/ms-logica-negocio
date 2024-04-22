@@ -1,6 +1,6 @@
-import {Entity, model, property, hasOne, belongsTo} from '@loopback/repository';
-import {ClientPlan} from './client-plan.model';
+import {belongsTo, Entity, hasOne, model, property} from '@loopback/repository';
 import {City} from './city.model';
+import {ClientPlan} from './client-plan.model';
 
 @model({
   settings: {
@@ -39,6 +39,12 @@ export class Client extends Entity {
     required: true,
   })
   lastName: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  email: string;
 
   @property({
     type: 'date',

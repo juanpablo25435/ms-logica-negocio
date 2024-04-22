@@ -11,3 +11,4 @@ export * from './city.model';
 export * from './garage.model';
 export * from './bus.model';
 export * from './room.model';
+export * from './funeral-service-request.model';
