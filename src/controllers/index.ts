@@ -35,3 +35,4 @@ export * from './client-city.controller';
 export * from './client-plan-city.controller';
 export * from './bus-garage.controller';
 export * from './garage-bus.controller';
+export * from './file-manager.controller';
