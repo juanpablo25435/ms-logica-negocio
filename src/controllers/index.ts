@@ -38,3 +38,4 @@ export * from './garage-bus.controller';
 export * from './file-manager.controller';
 export * from './room-booking-beneficiary.controller';
 export * from './beneficiary-room-booking.controller';
+export * from './payments.controller';
