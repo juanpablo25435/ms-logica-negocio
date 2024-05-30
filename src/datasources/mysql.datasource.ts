@@ -3,7 +3,6 @@ import {juggler} from '@loopback/repository';
 const config = {
   name: 'mysql',
   connector: 'mysql',
-  // url: 'database-1.chqkwwaieqws.us-east-2.rds.amazonaws.com',
   url: '',
   host: 'localhost',
   port: 3306,

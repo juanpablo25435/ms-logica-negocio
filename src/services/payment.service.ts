@@ -1,7 +1,7 @@
 import { /* inject, */ BindingScope, injectable} from '@loopback/core';
 const epayco = require('epayco-sdk-node')({
-  apiKey: '02aeb49dd547ec899a0844774f36e486',
-  privateKey: 'a40a57029fceb73ea034a2117ac83fd3',
+  apiKey: process.env.API_KEY,
+  privateKey: process.env.PRIVATE_KEY,
   lang: 'ES',
   test: true, // Modo de prueba
 });
@@ -29,7 +29,6 @@ export class PaymentService {
       throw new Error(`Error al crear el token: ${error.message}`);
     }
   }
-
   // Función para crear un pago
   async createPayment(paymentInfo: {
     cardInfo: {
@@ -42,6 +41,7 @@ export class PaymentService {
     descripcion: string;
     email: string;
   }): Promise<object> {
+    console.log(process.env.API_KEY, process.env.PRIVATE_KEY)
     try {
       // Crear un token de tarjeta
       const token = await this.createToken(paymentInfo.cardInfo);
@@ -76,8 +76,8 @@ export class PaymentService {
         currency: 'COP', // Moneda (por ejemplo, COP para pesos colombianos)
         dues: '1', // Número de cuotas
         ip: '190.000.000.000', // IP del cliente
-        url_response: 'https://ejemplo.com/respuesta', // URL de respuesta (puedes dejarlo vacío para pruebas)
-        url_confirmation: 'https://ejemplo.com/confirmacion', // URL de confirmación (puedes dejarlo vacío para pruebas)
+        url_response: '', // URL de respuesta (puedes dejarlo vacío para pruebas)
+        url_confirmation: '', // URL de confirmación (puedes dejarlo vacío para pruebas)
         method_confirmation: 'GET', // Método de confirmación
       });
 
