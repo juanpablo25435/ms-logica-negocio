@@ -11,3 +11,4 @@ export * from './plan.repository';
 export * from './room.repository';
 export * from './service-plan.repository';
 export * from './status-beneficiary.repository';
+export * from './room-booking.repository';

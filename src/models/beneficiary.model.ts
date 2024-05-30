@@ -1,6 +1,7 @@
 import {Entity, model, property, belongsTo, hasOne} from '@loopback/repository';
 import {ClientPlan} from './client-plan.model';
 import {StatusBeneficiary} from './status-beneficiary.model';
+import {RoomBooking} from './room-booking.model';
 
 @model({
   settings: {
@@ -51,6 +52,9 @@ export class Beneficiary extends Entity {
 
   @hasOne(() => StatusBeneficiary)
   statusBeneficiary: StatusBeneficiary;
+
+  @belongsTo(() => RoomBooking)
+  roomBookingId: number;
 
   constructor(data?: Partial<Beneficiary>) {
     super(data);

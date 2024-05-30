@@ -36,3 +36,5 @@ export * from './client-plan-city.controller';
 export * from './bus-garage.controller';
 export * from './garage-bus.controller';
 export * from './file-manager.controller';
+export * from './room-booking-beneficiary.controller';
+export * from './beneficiary-room-booking.controller';

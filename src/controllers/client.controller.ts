@@ -1,4 +1,3 @@
-import {service} from '@loopback/core';
 import {
   Count,
   CountSchema,
@@ -16,15 +15,15 @@ import * as crypto from 'crypto';
 import {ConfiguracionNotificaciones} from '../config/notificaciones.config';
 import {Client, FuneralServiceRequest} from '../models';
 import {ClientRepository} from '../repositories';
-import {NotificacionesService} from '../services/notificaciones.services';
+//import {NotificacionesService} from '../services/notificaciones.services';
 
 
 export class ClientController {
   constructor(
     @repository(ClientRepository)
     public clientRepository: ClientRepository,
-    @service(NotificacionesService)
-    public servicioNotificaciones: NotificacionesService
+    /*     @service(NotificacionesService)
+        public servicioNotificaciones: NotificacionesService */
   ) { }
 
   @post('/request-funeral-service')
@@ -93,7 +92,7 @@ export class ClientController {
       asuntoCorreo: 'Funeral Service Request Confirmation',
     };
     const notificationUrl = ConfiguracionNotificaciones.claveAsignada; // Specify your email notification URL
-    await this.servicioNotificaciones.EnviarNotificacion(emailDetails, notificationUrl);
+    // await this.servicioNotificaciones.EnviarNotificacion(emailDetails, notificationUrl);
 
     // Return the funeral service details
     return funeralServiceDetails;
