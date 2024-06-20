@@ -8,6 +8,7 @@ import {
 import {Departament} from './departament.model';
 import {Garage} from './garage.model';
 import {Room} from './room.model';
+import {FuneralService} from './funeral-service.model';
 
 @model({
   FK_CITY_IDDEPARTAMENT: {
@@ -39,6 +40,9 @@ export class City extends Entity {
 
   @hasMany(() => Room)
   rooms: Room[];
+
+  @hasMany(() => FuneralService)
+  funeralServices: FuneralService[];
 
   constructor(data?: Partial<City>) {
     super(data);

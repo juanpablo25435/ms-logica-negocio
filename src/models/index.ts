@@ -14,3 +14,5 @@ export * from './room.model';
 export * from './service-plan.model';
 export * from './status-beneficiary.model';
 
+export * from './funeral-service.model';
+export * from './review.model';
